@@ -31,3 +31,8 @@ for combi in all_combi:
         count -= 1
 
 print(count)
+
+# 두번째풀이
+# 부분리스트 리턴해서 모든 경우 탐색
+# for i in list:
+#     for j in list[i+1:]:

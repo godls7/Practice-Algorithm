@@ -19,8 +19,8 @@ n = map(int, input())
 scary = list(map(int, input().split()))
 
 group = 0
-group_list = []
-index = 0
+# group_list = []
+# index = 0
 count = 0
 
 scary.sort()
@@ -48,5 +48,3 @@ for scare in scary:
         count = 0
 
 print(group)
-
-

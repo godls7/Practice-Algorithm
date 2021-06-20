@@ -16,6 +16,8 @@
 ##########################################################
 n = list(map(int,input()))
 
+# 1차 풀이
+'''
 result = 1
 
 for i in n:
@@ -23,4 +25,16 @@ for i in n:
         result += i
     else :   
         result *= i
+print(result)
+'''
+
+# 2차 풀이
+result = n[0]
+for i in range(1,len(n)):
+    num = n[i]
+    if num == 0 or num == 1:
+        result += num
+    else:
+        result *= num
+
 print(result)

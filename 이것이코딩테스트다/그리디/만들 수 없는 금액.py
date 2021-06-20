@@ -16,12 +16,12 @@
 n = int(input())
 money = list(map(int, input().split()))
 
-money.sort()
+money.sort() # 오름차순 정렬
 result = 1
 
 for i in money:
     if result < i:
-        break;
+        break
     result += i
 
 print(result)
