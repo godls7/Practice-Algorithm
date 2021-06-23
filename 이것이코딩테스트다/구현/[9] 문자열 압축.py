@@ -32,15 +32,18 @@ def solution(s):
         # 두번째 문자열 파트 부터 문자열 끝까지 i 간격으로 비교..?
         for j in range(i, string_len, i):
             print('part-2', s[j:j + i])
-            if part_string == s[j:j + i]:
+            # 이전과 동일
+            if part_string == s[j:j + i]: 
                 count += 1
+            # 이전과 다른 문자열
             else:
                 if count != 1:
                     compress = compress + str(count) + part_string
                 else:
                     compress += part_string
-                count = 1
-
+                part_string = s[j:j+i]
+                count = 1 # 초기화
+        
     return min(answer, len(compress))
 
-print(solution("aabbaccc"))
+print(solution("ababcdcdababcdcd"))
