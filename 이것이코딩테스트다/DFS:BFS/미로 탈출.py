@@ -1,3 +1,12 @@
+# Solution Idea
+#   1. 
+
+# time complexity :
+##########################################################
+# 입력
+# 출력
+##########################################################
+
 from collections import deque
 
 n,m = map(int, input().split())
