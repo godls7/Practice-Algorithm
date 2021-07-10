@@ -13,7 +13,7 @@ def dfs(graph, v, visited):
         
     # print()
 
-#각 노드가 연결된 정보를 list 자료형으로 펴햔(2차원 List)
+#각 노드가 연결된 정보를 list 자료형으로 표현(2차원 List)
 graph = [
     [],
     [2, 3, 8],
