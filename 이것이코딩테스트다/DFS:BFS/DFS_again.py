@@ -1,6 +1,6 @@
 def dfs(graph, v, visited): # 그래프 / 현재노드 / 방문처리
     visited[v] = True # 현재노드 방문처리
-    print(v, end='')
+    print(v, end=' ')
 
     # 현재노드에 인접해있는 노드 차례대로 방문
     for i in graph[v] :
