@@ -1,3 +1,4 @@
+# 피보나치수열
 def fibonachi(n):
     #  n = (n-1) + (n-2)
     
