@@ -33,3 +33,6 @@ students = sorted(students, key=lambda data:(-int(data[1]), int(data[2]), -int(d
 
 for i in range(n):
     print(students[i][0])
+
+# for i in students:
+#     print(i[0])

@@ -18,7 +18,14 @@ result =[]
 for i in range(n):
     result.append(int(input()))
 
-result = sorted(result, reverse=True)
+#1
+# result = sorted(result, reverse=True)
+
+#2
+# result.sort(reverse=True)
+
+#3
+result.sort(key=lambda data:-data)
 
 for i in result:
     print(i, end=' ')
