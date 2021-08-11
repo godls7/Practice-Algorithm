@@ -9,12 +9,11 @@ public class Main_bj_2563_색종이_서울_12반_이해인{
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine()); // 색종이개수
-		int[][] input = new int[N][2];
-		int[][] paper = new int[100][100];
+		int[][] paper = new int[101][101];
 		
 		int count=0;
 		//먼저 입력받기
-		for(int n=0; n<N; n++) {
+		for(int n=1; n<=N; n++) {
 			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 			int X = Integer.parseInt(st.nextToken());
 			int Y = Integer.parseInt(st.nextToken());
@@ -27,11 +26,10 @@ public class Main_bj_2563_색종이_서울_12반_이해인{
 			}
 		}
 		
-		for(int x=0; x<100; x++) {
-			for(int y=0; y<100; y++) {
+		for(int x=1; x<=100; x++) {
+			for(int y=1; y<=100; y++) {
 				if(paper[x][y]==1) count++;
 			}
-		
 		}
 		System.out.println(count);
 	}

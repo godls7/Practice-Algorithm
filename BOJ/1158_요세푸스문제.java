@@ -19,17 +19,18 @@ public class Main_bj_1158_요세푸스문제 {
 		for(int i=1; i<=N; i++) {
 			queue.offer(i);
 		}
+		
 		sb.append("<");
-		while(queue.size()>1) { // 한개가 남을때까지
+		while(!queue.isEmpty()) { // 한개가 남을때까지
 			for(int j=0;j<K-1; j++) { // K보다 하나적게 빼고 뒤에 queue에 다시 넣어주기
 				queue.offer( queue.poll());
 			}
 			sb.append(queue.poll()).append(", "); // K번째 빠지는걸 출력
 		}
-		sb.append(queue.poll()).append(">"); // 맨 마지막 원소 출력
+		sb.setLength(sb.length()-2); // 현재 길이에서 2칸 자르기
+		sb.append(">");
 		
 		System.out.println(sb);
 		br.close();
 	}
-
 }

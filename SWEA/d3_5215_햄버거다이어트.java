@@ -7,7 +7,6 @@ public class d3_5215_햄버거다이어트 {
 	
 	static int N, L, maxScore;
 	static int material[][];
-	static boolean isSelected[];
 
 	public static void main(String[] args) throws Exception {
 		
@@ -23,12 +22,11 @@ public class d3_5215_햄버거다이어트 {
 			L = Integer.parseInt(st.nextToken());
 			
 			material = new int[N][2];
-			isSelected = new boolean[N];
 			
 			for(int j=0; j<N; j++) {
 				st = new StringTokenizer(br.readLine(), " ");
-				material[j][0] = Integer.parseInt(st.nextToken());
-				material[j][1] = Integer.parseInt(st.nextToken());
+				material[j][0] = Integer.parseInt(st.nextToken()); // 점수
+				material[j][1] = Integer.parseInt(st.nextToken()); // 칼로리
 			}
 			
 			maxScore = 0;
@@ -45,11 +43,9 @@ public class d3_5215_햄버거다이어트 {
 		if(cal<=L) maxScore = Math.max(maxScore, scr);
 		if(idx == N) return; // 모든 조합 다 확인했으면 리턴
 		
-//		isSelected[idx] = true;
-		selectMaterial(idx+1, scr+material[idx][0], cal+material[idx][1]);
-//		isSelected[idx] = false;
-		selectMaterial(idx+1, scr, cal);
-		
+		// 현재 과자가 선택되었을때
+		selectMaterial(idx+1, scr+material[idx][0], cal+material[idx][1]); 
+		// 현재 과자가 선택안됐을때
+		selectMaterial(idx+1, scr, cal); 
 	}
-
 }

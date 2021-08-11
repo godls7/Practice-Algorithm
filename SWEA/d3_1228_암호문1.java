@@ -17,6 +17,7 @@ public class d3_1228_암호문1 {
 			
 			int N = Integer.parseInt(br.readLine()); // 원본 암호문 길이
 			List<String> origin_code = new ArrayList<String>(); // 원본 암호문 저장할 ArrayList
+			// LinkedList로 선언하면 효율성 더 좋아지겠다...!!
 			StringTokenizer st = new StringTokenizer(br.readLine()," ");
 			
 			// 원본암호문 입력
@@ -26,7 +27,7 @@ public class d3_1228_암호문1 {
 			
 			int C = Integer.parseInt(br.readLine()); // 명령문 개수
 			
-			st = new StringTokenizer(br.readLine(), "I");
+			st = new StringTokenizer(br.readLine(), "I"); // I 기준으로 명령문 하나씩 자르기
 			for(int c=0; c<C; c++) {
 				StringTokenizer st2 = new StringTokenizer(st.nextToken()," "); // 각 명령어
 				int start = Integer.parseInt(st2.nextToken()); // 시작위치

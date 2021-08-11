@@ -11,8 +11,9 @@ public class d4_1233_사칙연산유효성검사 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
 
-		// 중위로 풀어야해
-		// dfs 왼->자신->오 로 돌면서 '자신'이 연산자가 아니면 => 1
+		// 중위로 풀어야해...??
+		// 1. 숫자일때는 리프노드여야한다
+		// 2. 연산자일때는 부모노드여야한다.
 		for(int c=0; c<10; c++) {
 			int N = Integer.parseInt(br.readLine()); // 노드수
 			char[] nodes= new char[N+1];
@@ -40,7 +41,6 @@ public class d4_1233_사칙연산유효성검사 {
 				}
 			}
 			sb.append("#").append(c+1).append(" ").append(answer).append("\n");
-			
 		}
 		System.out.println(sb);
 		br.close();

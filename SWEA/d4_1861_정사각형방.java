@@ -1,11 +1,11 @@
-package s0806;
+ package s0806;
 
 import java.io.*;
 import java.util.*;
 
 public class d4_1861_정사각형방 {
 	
-	static int[] dx = {-1,1,0,0};
+	static int[] dx = {-1,1,0,0}; // 상하좌우
 	static int[] dy = {0,0,-1,1};
 	
 	static int N=0;
@@ -60,9 +60,7 @@ public class d4_1861_정사각형방 {
 	
 	static void path(int x, int y, int now) {
 		
-//		if(x<0 || x>=N || y<0 || y>=N) return;
-		
-		int in_now=0;
+		int in_now=0; // 현재 인접 방
 		for(int d=0; d<4; d++) { // 현재 방에서 상하좌우 보면서
 			int nx = x + dx[d];
 			int ny = y + dy[d];
