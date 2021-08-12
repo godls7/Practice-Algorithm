@@ -3,7 +3,7 @@ package h0802;
 import java.io.*;
 import java.util.*;
 
-public class Main_bj_1244_스위치켜고끄기_서울12반_이해인 {
+public class Main_bj_1244_스위치켜고끄기 {
 
 	// 스위치 바꾸는 함수
 	static int change(int n) {

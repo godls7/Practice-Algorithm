@@ -3,7 +3,7 @@ package study.algorithm;
 import java.io.*;
 import java.util.*;
 
-public class Main_bj_17298_v2 {
+public class Main_bj_17298_오큰수_v2 {
 
 	public static void main(String[] args) throws Exception {
 

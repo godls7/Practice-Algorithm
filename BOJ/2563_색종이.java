@@ -3,7 +3,7 @@ package h0810;
 import java.io.*;
 import java.util.*;
 
-public class Main_bj_2563_색종이_서울_12반_이해인{
+public class Main_bj_2563_색종이 {
 
 	public static void main(String[] args) throws Exception {
 

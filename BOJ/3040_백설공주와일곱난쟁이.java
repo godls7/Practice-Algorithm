@@ -3,7 +3,7 @@ package h0812;
 import java.io.*;
 import java.util.*;
 
-public class Main_bj_3040_백설공주와일곱난쟁이_서울_12반_이해인 {
+public class Main_bj_3040_백설공주와일곱난쟁이 {
 	
 	static int input[]; // 입력값
 	static int real[]; // 진짜 난쟁이

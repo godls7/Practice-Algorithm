@@ -3,7 +3,7 @@ package h0811;
 import java.io.*;
 import java.util.*;
 
-public class Main_bj_16935_배열돌리기3_서울_12반_이해인 {
+public class Main_bj_16935_배열돌리기3 {
 	
 	// arr배열 하나로 서로 이동되는게 겹치지 않게 움직여야함..!!!
 	// (따로 배열선언해서 옮기느냐고.. 삽질했다ㅠㅠ)

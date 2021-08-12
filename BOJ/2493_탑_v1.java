@@ -3,7 +3,7 @@ package h0805;
 import java.io.*;
 import java.util.*;
 
-public class Main_bj_2493_탑_서울_12반_이해인_v1 {
+public class Main_bj_2493_탑_v1 {
 
 	public static void main(String[] args) throws Exception {
 	
