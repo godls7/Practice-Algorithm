@@ -8,7 +8,6 @@ import java.util.*;
 public class Main_bj_2961_도영이가만든맛있는음식 {
 	
 	static int[][] ingredent;
-	static boolean[] isSelect;
 	static int N, min;
 			
 	public static void main(String[] args) throws Exception {
@@ -26,7 +25,7 @@ public class Main_bj_2961_도영이가만든맛있는음식 {
 		
 		subset(0,1,0);
 		System.out.println(min);
-		
+		sc.close();
 	}
 	
 	static void subset(int cnt, int sin, int sson) {

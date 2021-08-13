@@ -18,6 +18,7 @@ public class Main_bj_3040_백설공주와일곱난쟁이 {
 		input = new int[size];
 		real = new int[size_t];
 		
+		// 난쟁이 입력받기
 		for(int i=0; i<size; i++) {
 			input[i] = Integer.parseInt(br.readLine());
 		}
@@ -30,22 +31,35 @@ public class Main_bj_3040_백설공주와일곱난쟁이 {
 
 	static void combination(int cnt, int start) {
 		
+		// 7명이 차면
 		if(cnt==size_t) {
 			int sum=0;
+			// 그때 7명 합구하기
 			for(int r:real) {
 				sum += r;
 			}
-			if(sum==100) {
+			if(sum==100) { // 합이 100일 경우
 				for(int r:real) {
-					sb.append(r).append("\n");
+					sb.append(r).append("\n"); // 출력
 				}
 			}
 			return;
+			/*
+			 * if(sum=100) {
+				for(int r:real) {
+					sb.append(r).append("\n"); // 출력
+				}
+			}
+			*/
 		}
 		
+		// 조합으로 구하기
 		for(int i=start; i<size; i++) {
 			real[cnt] = input[i];
 			combination(cnt+1,i+1);
+			/*
+			 * combination(cnt+1,i+1,sum+input[i]); // 바로 넘겨줘도댐! // 그럼 위에서 sum==100일때만 체크해주면됨
+			 */
 		}
 		return;
 	}
