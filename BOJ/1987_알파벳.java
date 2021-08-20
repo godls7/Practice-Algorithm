@@ -3,7 +3,9 @@ package h0819;
 import java.io.*;
 import java.util.*;
 
-public class Main_bj_1987_알파벳 {
+
+// LinkedHashSet : LinkedList인데 set으로 중복허용안함 을 이용해보자!
+public class Main_bj_1987_알파벳_서울_12반_이해인2 {
 	
 	static int R,C,count;
 	static char[][] board;

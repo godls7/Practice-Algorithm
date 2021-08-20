@@ -28,6 +28,7 @@ public class Main_bj_3109_빵집 {
 		
 		// 첫번째열의 모든행을 돌면서 dfs
 		for(int i=0; i<R; i++) {
+			flag = false; // 매번 초기화.. 무조건...!!!
 			dfs(i,0);			
 		}
 		
