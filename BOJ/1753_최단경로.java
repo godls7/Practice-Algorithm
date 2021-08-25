@@ -3,7 +3,7 @@ package h0824;
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class Main_bj_1753_최단경로 {
 	
 	static class Node {
 		int vertex, weight; // 도착정점,가중치
@@ -43,7 +43,7 @@ public class Main {
 			int v1 = Integer.parseInt(st.nextToken()); // 시작정점
 			int v2 = Integer.parseInt(st.nextToken()); // 도착정점
 			int w = Integer.parseInt(st.nextToken()); // 가중치
-			adjList[v1].add(new Node(v2, w)); // 인접리스트에 각 간선정보 저장
+			adjList[v1].add(new Node(v2, w)); // 인접리스트에 각 간선정보 저장 (유향그래프)
 		}
 				
 		distance[K] = 0; // 처음 시작정점 distance 0으로 설정
@@ -61,19 +61,19 @@ public class Main {
 								  minVertex = j; // 그때의 정점을 선택
 				}
 			}
-			
 			if(minVertex == -1) break; // -1 이라는 것은 최소가중치를가진 정점으로 선택되지 않았다는것이므로 경로존재X => 종료
 			visited[minVertex] = true; // 선택 정점 방문처리
 			// 모든 정점으로의 최단경로를 구해야하므로 탈출조건을 따로 주지않음
 			
+			
 			// 2. 헌재 선택정점을 경유지로 하여 갈수있는 아직 방문하지 않은 정점들에 대한 처리
 			for(Node next:adjList[minVertex]) {
-				// 아직 방문하지 않았고, list이기때문에 인접해있는 것만 해당
+				// 아직 방문하지 않았고, (list이기때문에 인접해있는 것만 해당)
 				// (시작점부터 선택정점까지의 거리 + 선택정점에서 다음인접정점의 거리)가
-				// 이미 저장된 시작점부터 다음정점까지 거리보다 작은경우
+				// 이미 존재하는 시작점부터 다음정점까지 거리보다 작은경우
 				// 해당 다음정점 거리배열에 새로운 거리 업데이트
 				if(!visited[next.vertex] && distance[next.vertex] > min+next.weight) {
-									  distance[next.vertex] = min+next.weight;
+											distance[next.vertex] = min+next.weight;
 				}
 			}
 		}

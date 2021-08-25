@@ -19,12 +19,10 @@ public class d4_3289_서로소집합 {
 		return parents[a] = find(parents[a]); // 자신의 대표 찾아가면서 상위대표를 설정해주며 리턴
 	}
 	
-	static boolean union(int a,int b) { // 두원소를 하나의 집합으로합치기
+	static void union(int a,int b) { // 두원소를 하나의 집합으로합치기
 		int aRoot = find(a);
 		int bRoot = find(b);
-		if(aRoot==bRoot) return false; //이미같은 집합 
 		parents[bRoot] = aRoot; // b대표자를 a로 바꿔줌
-		return true;
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -39,10 +37,10 @@ public class d4_3289_서로소집합 {
 			N = Integer.parseInt(st.nextToken()); // 정점
 			int M = Integer.parseInt(st.nextToken()); // 연산수
 			parents = new int[N+1];
-			sb.append("#").append(T).append(" ");
+			sb.append("#").append(t).append(" ");
 			
 			make();
-			System.out.println(Arrays.toString(parents));
+//			System.out.println(Arrays.toString(parents));
 			for(int m=0; m<M; m++) {
 				st = new StringTokenizer(br.readLine()," ");
 				int tag = Integer.parseInt(st.nextToken());
@@ -51,11 +49,8 @@ public class d4_3289_서로소집합 {
 				
 				switch (tag) {
 				case 0:
-					boolean input = union(first, second);
-					System.out.println(input);
-					System.out.println(Arrays.toString(parents));
+					union(first, second);
 					break;
-					
 				case 1:
 					if(find(first)==find(second)) sb.append(1);
 					else sb.append(0);
