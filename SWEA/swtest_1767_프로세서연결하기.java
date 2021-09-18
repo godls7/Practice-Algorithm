@@ -13,7 +13,7 @@ public class swtest_1767_프로세서연결하기 {
 
 	public static void main(String[] args) throws Exception {
 		
-		System.setIn(new FileInputStream("res/input_1767.txt"));
+//		System.setIn(new FileInputStream("res/input_1767.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
 		
@@ -21,17 +21,28 @@ public class swtest_1767_프로세서연결하기 {
 		for(int t=1; t<=T; t++) {
 			N = Integer.parseInt(br.readLine());
 			map = new int[N][N];
-			core_max=0; answer=0; length=0;
+			core_max=0; answer=1000; length=0;
 			cores = new ArrayList<int[]>();
 			
+			// 일단 map 다 입력받기 
 			for(int i=0; i<N; i++) {
 				StringTokenizer st = new StringTokenizer(br.readLine()," ");
 				for(int j=0; j<N; j++) {
 					map[i][j] = Integer.parseInt(st.nextToken());
-					if(map[i][j]==1 && i!=0 && i!=N-1 && j!=0 && j!=N-1) 
-						cores.add(new int[] {i,j});// 벽에 붙어있지 않은 코어만 저장 
 				}
 			}
+			// 전원에 이미 연결된 /core가 주변에 core를다둘려 쌓였을 경우 제외하고 cores list에 넣
+			for (int i = 0; i <N; i++) {
+				for(int j=0; j<N; j++) {
+					if(map[i][j]==1 && i!=0 && i!=N-1 && j!=0 && j!=N-1) {
+						if(isConnect(new int[] {i,j}, 0) || isConnect(new int[] {i,j}, 1) || isConnect(new int[] {i,j}, 2) || isConnect(new int[] {i,j}, 3)) {
+								cores.add(new int[] {i,j});// 벽에 붙어있지 않은 코어만 저장 
+						}
+					}
+				}
+			}
+			
+//			for(int [] c:cores) System.out.println(Arrays.toString(c));
 			calLenth(0,0,0);
 			sb.append("#").append(t).append(" ").append(answer).append("\n");
 		}
@@ -43,22 +54,15 @@ public class swtest_1767_프로세서연결하기 {
 	static void calLenth(int idx, int coreCount, int line) {
 		// 기저조건 
 		if(idx==cores.size()) {
-//			// core값이 최대가 여러개인 경우 
-//			if(core_max==coreCount) {
-//				// 전선합이 최소인것을 출력 
-//				answer = Math.min(answer, line);
-//				return;
-//			}
-//			// 아니라면, 둘중 최대를 core_max에 저장해주고 
-//			core_max=Math.max(coreCount, core_max);
-//			answer = line; // 현재 line 길이 저장 
-//			return;
-			if(core_max<coreCount) {
-				core_max=coreCount;
-				answer=line;
-			} else if(core_max==coreCount) {
-				answer=Math.min(answer, line);
+			// core값이 최대가 여러개인 경우 
+			if(core_max==coreCount) {
+				// 전선합이 최소인것을 출력 
+				answer = Math.min(answer, line);
+				return;
 			}
+			// 아니라면, 둘중 최대를 core_max에 저장해주고 
+			core_max=Math.max(coreCount, core_max);
+			answer = line; // 현재 line 길이 저장 
 			return;
 		}
 		
@@ -84,6 +88,19 @@ public class swtest_1767_프로세서연결하기 {
 		// 범위에 있는 동안 전원만날때 까지확인 
 		while(nx>=0 && nx<N && ny>=0 && ny<N) {
 			if(map[nx][ny]!=0) return false; // 0이 아닌게 하나라도 있으면 false
+			nx += dx[d]; // 해당 방향으로 끝까지 직진 
+			ny += dy[d];
+		}
+		return true;
+	}
+	
+	private static boolean isConnect_v(int[] now, int d) {
+		int nx = now[0]+dx[d]; // 설정한 방향의 x
+		int ny = now[1]+dy[d]; // 설정한 방향의 y
+		
+		// 범위에 있는 동안 전원만날때 까지확인 
+		while(nx>=0 && nx<N && ny>=0 && ny<N) {
+			if(map[nx][ny]==0) return false; // 0이 아닌게 하나라도 있으면 false
 			nx += dx[d]; // 해당 방향으로 끝까지 직진 
 			ny += dy[d];
 		}
